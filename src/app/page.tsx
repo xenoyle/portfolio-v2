@@ -1,14 +1,102 @@
 import Header from "@/app/components/Header";
 import Footer from "./components/Footer";
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Code, FileText, GraduationCapIcon as Graduation, Mail, User, Briefcase } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-ibm-plex-sans)]">
-      <Header /> 
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-ibm-plex-sans)]">
+      <Header />
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div></div>
+        <div className="bg-background text-white">
+          <div className="container mx-auto px-4 py-4 md:py-6">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center">
+              <div className="w-64 h-64 md:w-96 md:h-96 relative overflow-hidden border-4 border-green-500 shadow-lg rounded-4xl">
+                <Image
+                  src="/headshot.jpg"
+                  alt="Profile Picture"
+                  layout="fill"
+                  className="object-cover filter grayscale hover:grayscale-5 transition-all duration-300"
+                />
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                Welcome to My Portfolio
+              </h1>
+              <p className="text-xl md:text-2xl max-w-2xl mx-auto text-green-50">
+                My name is Connor W. Floyd, and I&apos;m a Junior Computational Science student currently enrolled 
+                in USCB and graduating in Spring 2026.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-12 w-full max-w-3xl">
+                {navigationItems.map((item) => (
+                  <NavigationCard key={item.href} {...item} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       <Footer />
     </div>
+  );
+}
+
+const navigationItems = [
+  {
+    href: "/about",
+    icon: <User className="h-6 w-6" />,
+    title: "About Me",
+    description: "Learn more about who I am",
+  },
+  {
+    href: "/experience",
+    icon: <Briefcase className="h-6 w-6" />,
+    title: "Experience",
+    description: "My professional journey",
+  },
+  {
+    href: "/projects",
+    icon: <Code className="h-6 w-6" />,
+    title: "Projects",
+    description: "Showcase of my work",
+  },
+  {
+    href: "/skills",
+    icon: <FileText className="h-6 w-6" />,
+    title: "Skills",
+    description: "Technologies I work with",
+  },
+  {
+    href: "/education",
+    icon: <Graduation className="h-6 w-6" />,
+    title: "Education",
+    description: "My academic background",
+  },
+  {
+    href: "/contact",
+    icon: <Mail className="h-6 w-6" />,
+    title: "Contact Me",
+    description: "Get in touch with me",
+  },
+];
+
+interface NavigationCardProps {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function NavigationCard({ href, icon, title, description }: NavigationCardProps) {
+  return (
+    <Link href={href} className="group">
+      <div className="h-full bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-lg p-6 transition-all duration-300 flex flex-col items-center text-center border border-white/20 hover:border-white/40 hover:shadow-lg">
+        <div className="p-2 rounded-full bg-green-600 mb-4">{icon}</div>
+        <h2 className="text-lg font-semibold mb-1">{title}</h2>
+        <p className="text-sm text-green-50/80 mb-3">{description}</p>
+        <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+    </Link>
   );
 }

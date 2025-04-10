@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 z-50 items-center px-8 py-5 bg-background shadow-green-500 shadow-2xl w-full border-t-3 border-b-3 border-green-500 justify-center flex flex-row gap-20">
       <div className="text-2xl font-bold text-white">
-        <Link href="/home">Connor W. Floyd</Link>
+        <Link href="/">Connor W. Floyd</Link>
       </div>
       <nav className="">
         <ul className="flex space-x-8 text-white text-xl">
