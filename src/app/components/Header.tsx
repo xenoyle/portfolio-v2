@@ -9,22 +9,34 @@ export default function Header() {
       <nav className="">
         <ul className="flex space-x-8 text-white text-xl">
           <li>
-            <Link href="/about">About Me</Link>
+            <Link href="/about" rel="noopener noreferrer">
+              About Me
+            </Link>
           </li>
           <li>
-            <Link href="/experience">Experience</Link>
+            <Link href="/experience" rel="noopener noreferrer">
+              Experience
+            </Link>
           </li>
           <li>
-            <Link href="/projects">Projects</Link>
+            <Link href="/projects" rel="noopener noreferrer">
+              Projects
+            </Link>
           </li>
           <li>
-            <Link href="/skills">Skills</Link>
+            <Link href="/skills" rel="noopener noreferrer">
+              Skills
+            </Link>
           </li>
           <li>
-            <Link href="/education">Education</Link>
+            <Link href="/education" rel="noopener noreferrer">
+              Education
+            </Link>
           </li>
           <li>
-            <Link href="/contact">Contact Me</Link>
+            <Link href="/contact" rel="noopener noreferrer">
+              Contact Me
+            </Link>
           </li>
         </ul>
       </nav>
