@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import EducationItem from "../components/EducationItem";
 import React from "react";
-import { Calendar, MapPin } from "lucide-react";
 
 export default function Education() {
   return (
@@ -68,55 +68,6 @@ export default function Education() {
         </div>
       </main>
       <Footer />
-    </div>
-  );
-}
-
-interface EducationItemProps {
-  degree: string;
-  institution: string;
-  location: string;
-  period: string;
-  description: string;
-  courses: string[];
-}
-
-function EducationItem({ degree, institution, location, period, description, courses }: EducationItemProps) {
-  return (
-    <div className="border-l-2 border-accent pl-6 relative">
-      <div className="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1"></div>
-
-      <div className="mb-2">
-        <h2 className="text-2xl font-bold text-[#ededed]">{degree}</h2>
-        <h3 className="text-xl text-accent">{institution}</h3>
-
-        <div className="flex flex-col sm:flex-row sm:items-center text-[#ededed]/60 mt-1 gap-2 sm:gap-4">
-          <div className="flex items-center">
-            <MapPin className="h-4 w-4 mr-2" />
-            <span>{location}</span>
-          </div>
-          <div className="flex items-center">
-            <Calendar className="h-4 w-4 mr-2" />
-            <span>{period}</span>
-          </div>
-        </div>
-      </div>
-
-      <p className="my-4 text-[#ededed]/80">{description}</p>
-
-      <div className="mt-4">
-        <h4 className="font-semibold text-[#ededed] mb-2">Key Courses:</h4>
-        <div className="flex flex-wrap gap-2">
-          {courses.map((course, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-[#0a0a0a] text-accent border border-accent/20 rounded-full text-sm"
-            >
-              {course}
-            </span>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
