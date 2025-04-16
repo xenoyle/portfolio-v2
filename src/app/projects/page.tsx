@@ -10,9 +10,9 @@ export default function Projects() {
       <Header />
       <main className="container mx-auto px-4 py-16 row-start-2">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 border-b border-green-500/20 pb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#ededed]">Projects</h1>
-            <div className="h-1 w-20 bg-green-500 mt-4"></div>
+          <div className="mb-8 border-b border-accent/20 pb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h1>
+            <div className="h-1 w-20 bg-accent mt-4"></div>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
@@ -65,29 +65,29 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, description, technologies, githubUrl, liveUrl }: ProjectCardProps) {
   return (
-    <div className="bg-[#0a0a0a] border border-green-500/20 rounded-lg overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/5">
-      <div className="h-48 bg-[#111111] flex items-center justify-center">
-        <span className="text-green-500 text-opacity-20 text-4xl font-bold">{title[0]}</span>
+    <div className="bg-background border border-accent/20 rounded-lg overflow-hidden hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5">
+      <div className="h-48 bg-background flex items-center justify-center">
+        <span className="text-accent text-opacity-20 text-4xl font-bold">{title[0]}</span>
       </div>
 
       <div className="p-6">
-        <h2 className="text-xl font-bold mb-2 text-[#ededed]">{title}</h2>
-        <p className="text-[#ededed]/70 mb-4">{description}</p>
+        <h2 className="text-xl font-bold mb-2 text-foreground">{title}</h2>
+        <p className="text-foreground/70 mb-4">{description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
-            <span key={index} className="px-2 py-1 bg-[#040404] text-green-500 rounded-md text-xs">
+            <span key={index} className="px-2 py-1 bg-background text-accent rounded-md text-xs">
               {tech}
             </span>
           ))}
         </div>
 
         <div className="flex gap-4 mt-4">
-          <Link href={githubUrl} className="flex items-center text-[#ededed]/70 hover:text-green-500 transition-colors">
+          <Link href={githubUrl} className="flex items-center text-foreground/70 hover:text-accent transition-colors">
             <Github className="h-4 w-4 mr-1" />
             <span className="text-sm">Code</span>
           </Link>
-          <Link href={liveUrl} className="flex items-center text-[#ededed]/70 hover:text-green-500 transition-colors">
+          <Link href={liveUrl} className="flex items-center text-foreground/70 hover:text-accent transition-colors">
             <ExternalLink className="h-4 w-4 mr-1" />
             <span className="text-sm">Live Demo</span>
           </Link>

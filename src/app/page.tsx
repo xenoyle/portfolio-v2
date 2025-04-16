@@ -10,10 +10,10 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-ibm-plex-sans)]">
       <Header />
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div className="bg-background text-white">
+        <div className="bg-background text-foreground">
           <div className="container mx-auto px-4 py-4 md:py-6">
             <div className="flex flex-col items-center justify-center space-y-8 text-center">
-              <div className="w-64 h-64 md:w-96 md:h-96 relative overflow-hidden border-4 border-green-500 shadow-lg rounded-4xl">
+              <div className="w-64 h-64 md:w-96 md:h-96 relative overflow-hidden border-4 border-accent shadow-lg rounded-4xl">
                 <Image
                   src="/headshot.jpg"
                   alt="Profile Picture"
@@ -24,7 +24,7 @@ export default function Home() {
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                 Welcome to My Portfolio
               </h1>
-              <p className="text-xl md:text-2xl max-w-2xl mx-auto text-green-50">
+              <p className="text-xl md:text-2xl max-w-2xl mx-auto text-foreground">
                 My name is Connor W. Floyd, and I&apos;m a Junior Computational Science student currently enrolled 
                 in USCB and graduating in Spring 2026.
               </p>
