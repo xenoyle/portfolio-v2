@@ -63,9 +63,9 @@ export default function Contact() {
       <Header />
       <main className="container mx-auto px-4 py-16 row-start-2">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 border-b border-accent/20 pb-4">
+          <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Contact Me</h1>
-            <div className="h-1 w-20 bg-accent mt-4"></div>
+            <div className="h-1 w-20 bg-green-500 mt-4"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -74,8 +74,8 @@ export default function Contact() {
               <h2 className="text-2xl font-bold mb-6 text-foreground">Get In Touch</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="bg-accent/10 p-3 rounded-full mr-4">
-                    <Mail className="h-6 w-6 text-accent" />
+                  <div className="bg-green-500/10 p-3 rounded-full mr-4">
+                    <Mail className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
@@ -83,8 +83,8 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-accent/10 p-3 rounded-full mr-4">
-                    <Phone className="h-6 w-6 text-accent" />
+                  <div className="bg-green-500/10 p-3 rounded-full mr-4">
+                    <Phone className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Phone</h3>
@@ -95,8 +95,8 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-accent/10 p-3 rounded-full mr-4">
-                    <MapPin className="h-6 w-6 text-accent" />
+                  <div className="bg-green-500/10 p-3 rounded-full mr-4">
+                    <MapPin className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Location</h3>
@@ -122,7 +122,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-background border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-foreground"
+                    className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   />
                 </div>
                 <div>
@@ -136,7 +136,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-background border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-foreground"
+                    className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   />
                 </div>
                 <div>
@@ -150,7 +150,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-background border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-foreground"
+                    className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   />
                 </div>
                 <div>
@@ -164,13 +164,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-2 bg-background border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-foreground"
+                    className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center justify-center w-full px-4 py-2 bg-accent text-[#040404] font-medium rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-[#040404] transition-colors disabled:opacity-70"
+                  className="flex items-center justify-center w-full px-4 py-2 bg-green-500 text-[#040404] font-medium rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-[#040404] transition-colors disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>
@@ -182,7 +182,7 @@ export default function Contact() {
                   )}
                 </button>
                 {submitMessage && (
-                  <div className="mt-4 p-3 bg-accent/10 border border-accent/20 rounded-md text-accent">
+                  <div className="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-md text-green-500">
                     {submitMessage}
                   </div>
                 )}

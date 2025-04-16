@@ -13,12 +13,12 @@ interface EducationItemProps {
   
 export default function EducationItem({ degree, institution, location, period, description, courses }: EducationItemProps) {
     return (
-        <div className="border-l-2 border-accent pl-6 relative">
-            <div className="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1"></div>
+        <div className="border-l-2 border-green-500 pl-6 relative">
+            <div className="absolute w-4 h-4 bg-green-500 rounded-full -left-[9px] top-1"></div>
 
             <div className="mb-2">
                 <h2 className="text-2xl font-bold text-foreground">{degree}</h2>
-                <h3 className="text-xl text-accent">{institution}</h3>
+                <h3 className="text-xl text-green-500">{institution}</h3>
 
                 <div className="flex flex-col sm:flex-row sm:items-center text-foreground/60 mt-1 gap-2 sm:gap-4">
                 <div className="flex items-center">
@@ -40,7 +40,7 @@ export default function EducationItem({ degree, institution, location, period, d
                 {courses.map((course, index) => (
                     <span
                     key={index}
-                    className="px-3 py-1 bg-[#0a0a0a] text-accent border border-accent/20 rounded-full text-sm"
+                    className="px-3 py-1 bg-[#0a0a0a] text-green-500 border border-green-500/20 rounded-full text-sm"
                     >
                     {course}
                     </span>

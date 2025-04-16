@@ -13,7 +13,7 @@ export default function Home() {
         <div className="bg-background text-foreground">
           <div className="container mx-auto px-4 py-4 md:py-6">
             <div className="flex flex-col items-center justify-center space-y-8 text-center">
-              <div className="w-64 h-64 md:w-96 md:h-96 relative overflow-hidden border-4 border-accent shadow-lg rounded-4xl">
+              <div className="w-64 h-64 md:w-96 md:h-96 relative overflow-hidden border-4 border-green-500 shadow-lg rounded-4xl">
                 <Image
                   src="/headshot.jpg"
                   alt="Profile Picture"

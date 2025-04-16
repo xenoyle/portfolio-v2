@@ -9,9 +9,9 @@ export default function Experience() {
       <Header />
       <main className="container mx-auto px-4 py-16 row-start-2">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 border-b border-accent/20 pb-4">
+          <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Experience</h1>
-            <div className="h-1 w-20 bg-accent mt-4"></div>
+            <div className="h-1 w-20 bg-green-500 mt-4"></div>
           </div>
 
           <div className="space-y-12">

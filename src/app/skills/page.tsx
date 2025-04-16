@@ -8,9 +8,9 @@ export default function Skills() {
       <Header />
       <main className="container mx-auto px-4 py-16 row-start-2">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 border-b border-accent/20 pb-4">
+          <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Skills</h1>
-            <div className="h-1 w-20 bg-accent mt-4"></div>
+            <div className="h-1 w-20 bg-green-500 mt-4"></div>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
@@ -77,8 +77,8 @@ interface SkillCategoryProps {
 
 function SkillCategory({ title, skills }: SkillCategoryProps) {
   return (
-    <div className="bg-background border border-accent/20 rounded-lg p-6">
-      <h2 className="text-xl font-bold mb-6 text-accent">{title}</h2>
+    <div className="bg-background border border-green-500/20 rounded-lg p-6">
+      <h2 className="text-xl font-bold mb-6 text-green-500">{title}</h2>
 
       <div className="space-y-4">
         {skills.map((skill, index) => (
@@ -88,7 +88,7 @@ function SkillCategory({ title, skills }: SkillCategoryProps) {
               <span className="text-background/60">{skill.level}%</span>
             </div>
             <div className="w-full bg-backgroun] rounded-full h-2.5">
-              <div className="bg-accent h-2.5 rounded-full" style={{ width: `${skill.level}%` }}></div>
+              <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${skill.level}%` }}></div>
             </div>
           </div>
         ))}

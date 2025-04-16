@@ -9,9 +9,9 @@ export default function Education() {
       <Header />
       <main className="container mx-auto px-4 py-16 row-start-2">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 border-b border-accent/20 pb-4">
+          <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Education</h1>
-            <div className="h-1 w-20 bg-accent mt-4"></div>
+            <div className="h-1 w-20 bg-green-500 mt-4"></div>
           </div>
 
           <div className="space-y-12">
@@ -51,12 +51,12 @@ export default function Education() {
               courses={["AP Computer Science", "AP Physics I"]}
             />
             {/*
-            <div className="bg-[#0a0a0a] border border-accent/20 rounded-lg p-6 mt-12">
-              <h2 className="text-xl font-bold mb-4 text-accent">Certifications</h2>
+            <div className="bg-[#0a0a0a] border border-green-500/20 rounded-lg p-6 mt-12">
+              <h2 className="text-xl font-bold mb-4 text-green-500">Certifications</h2>
 
               <div className="space-y-4">
                 
-                <div className="border-l-2 border-accent/50 pl-4">
+                <div className="border-l-2 border-green-500/50 pl-4">
                   <h3 className="text-lg font-semibold text-[#ededed]">Placeholder Certification</h3>
                   <p className="text-[#ededed]/60">Placeholder Certifying Authority</p>
                 </div>
