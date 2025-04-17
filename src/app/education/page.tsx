@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import EducationItem from "../components/EducationItem";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import EducationItem from "../../components/EducationItem";
 import React from "react";
 
 export default function Education() {

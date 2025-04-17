@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ExperienceItem from "../components/ExperienceItem";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import ExperienceItem from "../../components/ExperienceItem";
 import React from "react";
 
 export default function Experience() {

@@ -1,6 +1,6 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import NavigationCard from "./components/NavigationCard";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import NavigationCard from "../components/NavigationCard";
 import React from "react";
 import Image from "next/image";
 import { Code, FileText, GraduationCapIcon as Graduation, Mail, User, Briefcase } from "lucide-react";

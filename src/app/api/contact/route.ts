@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     // Insert into Supabase
     const { data, error } = await supabase
-      .from("contacts")
+      .from("contact-form")
       .insert([{ name, email, subject, message }]);
 
     if (error) {
