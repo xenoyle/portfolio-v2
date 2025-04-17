@@ -1,8 +1,9 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import React from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import GithubIcon from "../../assets/github.svg"; // Adjust the path as needed
 
 export default function Projects() {
   return (
@@ -17,35 +18,43 @@ export default function Projects() {
 
           <div className="grid gap-8 md:grid-cols-2">
             <ProjectCard
-              title="E-Commerce Platform"
-              description="A full-stack e-commerce platform with user authentication, product management, and payment processing."
-              technologies={["React", "Node.js", "MongoDB", "Stripe"]}
-              githubUrl="#"
-              liveUrl="#"
+              title="Personal Portfolio Website (v2)"
+              description="A modern portfolio website showcasing my skills, experience, and projects."
+              technologies={["React", "Next.js", "Tailwind CSS"]}
+              githubUrl="https://github.com/xenoyle/cwf-portfolio-app"
+              liveUrl="https://cwf-portfolio-app.vercel.app"
             />
 
             <ProjectCard
-              title="Task Management App"
-              description="A responsive task management application with drag-and-drop functionality and real-time updates."
-              technologies={["Vue.js", "Firebase", "Tailwind CSS"]}
-              githubUrl="#"
-              liveUrl="#"
+              title="The Royal Echoes of Ur - A Greenfoot Project"
+              description="A Greenfoot-based project developed as part of coursework at the University of South Carolina-Beaufort. "
+              technologies={["Greenfoot", "Java"]}
+              githubUrl="https://github.com/xenoyle/course-B145-final-greenfoot-project"
+              liveUrl="https://www.greenfoot.org/scenarios/34424"
             />
 
             <ProjectCard
-              title="Weather Dashboard"
-              description="A weather dashboard that displays current and forecasted weather data for multiple locations."
-              technologies={["JavaScript", "Weather API", "Chart.js"]}
-              githubUrl="#"
-              liveUrl="#"
+              title="HackNC 2024: Local Pioneer"
+              description="Created a web app inspired by LinkedIn and Facebook, featuring a Flask backend, SQLAlchemy database, and map widget functionality using Leaflet and Nominatim API."
+              technologies={["Flask", "SQLAlchemy", "Leaflet", "Nominatim", "CI/CD"]}
+              githubUrl="https://github.com/AlvajoyAsante/LocalPioneer"
+              liveUrl="https://devpost.com/software/local-pioneer"
             />
 
             <ProjectCard
-              title="Portfolio Website"
-              description="A personal portfolio website showcasing my skills, experience, and projects."
-              technologies={["Next.js", "TypeScript", "Tailwind CSS"]}
-              githubUrl="#"
-              liveUrl="#"
+              title="Personal Portfolio Website (v1)"
+              description="The first version of my portfolio website, built with HTML, CSS, and JavaScript."
+              technologies={["HTML5", "CSS", "JavaScript", "DNS Management"]}
+              githubUrl="https://github.com/xenoyle/xenoyle.github.io"
+              liveUrl="connorwfloyd.dev"
+            />
+
+            <ProjectCard
+              title="Is Marijuana a Gateway Drug: A Data Analysis Presentation"
+              description="Led a data analysis project exploring the correlation between marijuana use and other illicit drug consumption among youth, using the 2021 YRBS dataset. Presented at the USCB Spring 2024 Science Fair."
+              technologies={["Python", "Pandas", "Matplotlib", "Seaborn", "Data Presentation"]}
+              githubUrl="https://github.com/xenoyle/course-B104-data-analysis-project"
+              liveUrl=""
             />
           </div>
         </div>
@@ -83,14 +92,22 @@ function ProjectCard({ title, description, technologies, githubUrl, liveUrl }: P
         </div>
 
         <div className="flex gap-4 mt-4">
+          {/* GitHub Button */}
           <Link href={githubUrl} className="flex items-center text-foreground/70 hover:text-green-500 transition-colors">
-            <Github className="h-4 w-4 mr-1" />
+            <img src={GithubIcon} alt="GitHub" className="h-4 w-4 mr-1" />
             <span className="text-sm">Code</span>
           </Link>
-          <Link href={liveUrl} className="flex items-center text-foreground/70 hover:text-green-500 transition-colors">
-            <ExternalLink className="h-4 w-4 mr-1" />
-            <span className="text-sm">Live Demo</span>
-          </Link>
+
+          {/* Conditionally Render Live Demo Button */}
+          {liveUrl && (
+            <Link
+              href={liveUrl}
+              className="flex items-center text-foreground/70 hover:text-green-500 transition-colors"
+            >
+              <ExternalLink className="h-4 w-4 mr-1" />
+              <span className="text-sm">Live Demo</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>
