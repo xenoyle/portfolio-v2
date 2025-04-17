@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader } from "lucide-react"; // Add Loader for spinner
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -26,23 +26,22 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       if (!response.ok) {
-        // If the response is not OK, throw an error
         const errorData = await response.json();
         throw new Error(errorData.error || "Something went wrong");
       }
-  
+
       const responseData = await response.json();
       console.log("Response from API:", responseData);
-  
+
       // Show success message
       setSubmitMessage("Your message has been sent successfully!");
       setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
@@ -123,6 +122,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting} // Disable input during submission
                     className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   />
                 </div>
@@ -137,6 +137,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting} // Disable input during submission
                     className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   />
                 </div>
@@ -151,6 +152,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting} // Disable input during submission
                     className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   />
                 </div>
@@ -165,6 +167,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
+                    disabled={isSubmitting} // Disable input during submission
                     className="w-full px-4 py-2 bg-background border border-green-500/20 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-foreground"
                   ></textarea>
                 </div>
@@ -174,7 +177,10 @@ export default function Contact() {
                   className="flex items-center justify-center w-full px-4 py-2 bg-green-500 text-[#040404] font-medium rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-[#040404] transition-colors disabled:opacity-70"
                 >
                   {isSubmitting ? (
-                    <span>Sending...</span>
+                    <>
+                      <Loader className="h-4 w-4 mr-2 animate-spin" />
+                      <span>Sending...</span>
+                    </>
                   ) : (
                     <>
                       <Send className="h-4 w-4 mr-2" />
