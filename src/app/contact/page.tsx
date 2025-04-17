@@ -26,35 +26,36 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const text = await response.text();
-      console.log("Raw response:", text);
-
-      // Parse the response as JSON
-      const result = await response.json();
-
+  
       if (!response.ok) {
-        throw new Error(result.error || "An error occurred");
+        // If the response is not OK, throw an error
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Something went wrong");
       }
-
-      setSubmitMessage("Thank you for your message! I will get back to you soon.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+  
+      const responseData = await response.json();
+      console.log("Response from API:", responseData);
+  
+      // Show success message
+      setSubmitMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
     } catch (err: unknown) {
       if (err instanceof Error) {
-        console.error(err.message);
+        console.error("Error submitting form:", err.message);
+        setSubmitMessage(`Error: ${err.message}`);
       } else {
-        console.error("An unknown error occurred");
+        console.error("Unknown error:", err);
+        setSubmitMessage("An unknown error occurred. Please try again.");
       }
-      setSubmitMessage("There was an error sending your message. Please try again later.");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitMessage(""), 5000);
     }
   };
 

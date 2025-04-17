@@ -30,8 +30,10 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.NOTIFICATION_EMAIL,
-      subject: `New contact form submission: ${subject}`,
-      text: `You received a new message from ${name} (${email}):\n\n${message}`,
+      subject: `Portfolio Contact Form: ${subject} - ${name}`,
+      text: `You received a new message from ${name} at ${email}:
+      \n\nSubject: ${subject}
+      \n\nMessage: ${message}`,
     };
 
     // Wrap sendMail in a Promise so we await it properly
