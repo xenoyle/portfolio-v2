@@ -3,7 +3,8 @@ import Footer from "../../components/Footer";
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import GithubIcon from "../../assets/github.svg"; // Adjust the path as needed
+import { Code } from "lucide-react";
+import Image from "next/image";
 
 export default function Projects() {
   return (
@@ -46,7 +47,7 @@ export default function Projects() {
               description="The first version of my portfolio website, built with HTML, CSS, and JavaScript."
               technologies={["HTML5", "CSS", "JavaScript", "DNS Management"]}
               githubUrl="https://github.com/xenoyle/xenoyle.github.io"
-              liveUrl="connorwfloyd.dev"
+              liveUrl="https://connorwfloyd.dev"
             />
 
             <ProjectCard
@@ -55,6 +56,7 @@ export default function Projects() {
               technologies={["Python", "Pandas", "Matplotlib", "Seaborn", "Data Presentation"]}
               githubUrl="https://github.com/xenoyle/course-B104-data-analysis-project"
               liveUrl=""
+              imageUrl = "/data-analysis-project-science-fair-picture.jpg"
             />
           </div>
         </div>
@@ -70,15 +72,30 @@ interface ProjectCardProps {
   technologies: string[];
   githubUrl: string;
   liveUrl: string;
+  imageUrl?: string; // Optional image URL
 }
 
-function ProjectCard({ title, description, technologies, githubUrl, liveUrl }: ProjectCardProps) {
+function ProjectCard({ title, description, technologies, githubUrl, liveUrl, imageUrl }: ProjectCardProps) {
   return (
     <div className="bg-background border border-green-500/20 rounded-lg overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/5">
-      <div className="h-48 bg-background flex items-center justify-center">
-        <span className="text-green-500 text-opacity-20 text-4xl font-bold">{title[0]}</span>
+      {/* Top Half: Image or Placeholder */}
+      <div className="h-48 bg-background flex items-center justify-center overflow-hidden">
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={`${title} image`}
+            width={400} // Set a width for the image
+            height={192} // Set a height for the image
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full bg-green-500/10">
+            <span className="text-green-500 text-opacity-20 text-4xl font-bold">{title[0]}</span>
+          </div>
+        )}
       </div>
 
+      {/* Bottom Half: Content */}
       <div className="p-6">
         <h2 className="text-xl font-bold mb-2 text-foreground">{title}</h2>
         <p className="text-foreground/70 mb-4">{description}</p>
@@ -93,8 +110,13 @@ function ProjectCard({ title, description, technologies, githubUrl, liveUrl }: P
 
         <div className="flex gap-4 mt-4">
           {/* GitHub Button */}
-          <Link href={githubUrl} className="flex items-center text-foreground/70 hover:text-green-500 transition-colors">
-            <img src={GithubIcon} alt="GitHub" className="h-4 w-4 mr-1" />
+          <Link
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center text-foreground/70 hover:text-green-500 transition-colors"
+          >
+            <Code className="h-4 w-4 mr-1" />
             <span className="text-sm">Code</span>
           </Link>
 
@@ -102,6 +124,8 @@ function ProjectCard({ title, description, technologies, githubUrl, liveUrl }: P
           {liveUrl && (
             <Link
               href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center text-foreground/70 hover:text-green-500 transition-colors"
             >
               <ExternalLink className="h-4 w-4 mr-1" />
