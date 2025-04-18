@@ -43,7 +43,7 @@ It also includes a preserved legacy version of my first personal website under t
 ## 🧪 Getting Started (For Developers)
 
 ```bash
-git clone https://github.com/xenoyle/portfolio-v1.git
-cd portfolio-v1
+git clone https://github.com/xenoyle/portfolio-v2.git
+cd portfolio-v2
 npm install
 npm run dev
