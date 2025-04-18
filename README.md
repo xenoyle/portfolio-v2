@@ -36,14 +36,14 @@ It also includes a preserved legacy version of my first personal website under t
 - [Next.js](https://nextjs.org/) – React framework for fast, server-rendered apps
 - [TypeScript](https://www.typescriptlang.org/) – Static typing for JavaScript
 - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS for rapid UI development
-- [Supabase](https://supabase.com/) – (WIP) backend for form submission and storage
+- [Supabase](https://supabase.com/) – Backend for form submission and storage
 
 ---
 
 ## 🧪 Getting Started (For Developers)
 
 ```bash
-git clone https://github.com/connorfloyd/portfolio.git
-cd portfolio
+git clone https://github.com/xenoyle/portfolio-v1.git
+cd portfolio-v1
 npm install
 npm run dev
