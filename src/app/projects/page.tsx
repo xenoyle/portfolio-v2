@@ -47,7 +47,7 @@ const projects: Project[] = [
     description: "The first version of my portfolio website, built with HTML, CSS, and JavaScript.",
     technologies: ["HTML5", "CSS", "JavaScript", "DNS Management"],
     githubUrl: "https://github.com/xenoyle/xenoyle.github.io",
-    liveUrl: "https://connorwfloyd.dev",
+    liveUrl: "https://cwf-portfolio-app.vercel.app/old",
     year: 2024,
   },
   {
