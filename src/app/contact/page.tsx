@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send, Loader } from "lucide-react"; // Add Loader for spinner
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ResumeButton from "@/components/ResumeButton";
 import { motion } from "motion/react";
 
 export default function Contact() {
@@ -60,15 +61,15 @@ export default function Contact() {
   };
 
   return (
-    <motion.div 
-      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20"
-      initial={{ opacity: 0}}
-      animate={{ opacity: 1}}
-      exit={{ opacity: 0}}
-      transition={{ duration: 1.3 }}
-    >
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
       <Header />
-      <main className="container mx-auto px-4 row-start-2">
+      <motion.main
+        className="container mx-auto px-4 row-start-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1.3 }}
+      >
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Contact Me</h1>
@@ -108,7 +109,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-foreground">Location</h3>
                     <p className="text-foreground/70">Bluffton, SC</p>
-                    <p className="text-foreground/70">Open to relocation for full-time offers</p>
+                    <p className="text-foreground/70">Open to relocation and remote for full-time offers</p>
                   </div>
                 </div>
               </div>
@@ -204,8 +205,9 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </main>
+      </motion.main>
+      <ResumeButton />
       <Footer />
-    </motion.div>
+    </div>
   );
 }

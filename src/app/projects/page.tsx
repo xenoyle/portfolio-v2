@@ -1,12 +1,13 @@
 "use client";
 
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ResumeButton from "@/components/ResumeButton";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Code, ExternalLink } from "lucide-react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 
 interface Project {
   title: string;
@@ -85,7 +86,8 @@ function ProjectCard({ project }: { project: Project }) {
             alt={`${project.title} image`}
             width={400}
             height={192}
-            className="w-full h-full object-cover filter brightness-75 grayscale group-hover:brightness-100 group-hover:grayscale-0 transition-all duration-300"          />
+            className="w-full h-full object-cover filter brightness-75 grayscale group-hover:brightness-100 group-hover:grayscale-0 transition-all duration-300"
+          />
         ) : (
           <div className="flex items-center justify-center w-full h-full bg-green-500/10">
             <span className="text-green-500 text-opacity-20 text-4xl font-bold">
@@ -95,7 +97,6 @@ function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
       <div className="flex flex-col flex-1 p-6">
-        {/* Inner box to contain text and skills */}
         <div className="bg-background p-6 rounded-md border border-green-500/20 flex flex-col flex-1">
           <div>
             <h2 className="text-xl font-bold mb-2 text-foreground">{project.title}</h2>
@@ -108,7 +109,6 @@ function ProjectCard({ project }: { project: Project }) {
               ))}
             </div>
           </div>
-          {/* Links container pushed to the bottom */}
           <div className="flex gap-4 mt-auto">
             <Link
               href={project.githubUrl}
@@ -139,39 +139,42 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const groupedProjects = groupProjectsByYear(projects);
-  
+
   const years = Object.keys(groupedProjects)
     .map(Number)
     .sort((a, b) => b - a);
 
   return (
-    <motion.div
-      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20"
-      initial={{ opacity: 0}}
-      animate={{ opacity: 1}}
-      exit={{ opacity: 0}}
-      transition={{ duration: 1.3 }}
-    >
+    <>
       <Header />
-      <main className="container mx-auto px-4 row-start-2">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8 border-b border-green-500/20 pb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h1>
-            <div className="h-1 w-20 bg-green-500 mt-4"></div>
-          </div>
-          {years.map((year) => (
-            <div key={year} className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-6">{year}</h2>
-              <div className="grid gap-8 md:grid-cols-2 items-stretch">
-                {groupedProjects[year].map((project) => (
-                  <ProjectCard key={project.title} project={project} />
-                ))}
-              </div>
+      <motion.div
+        className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1.3 }}
+      >
+        <main className="container mx-auto px-4 row-start-2">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8 border-b border-green-500/20 pb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h1>
+              <div className="h-1 w-20 bg-green-500 mt-4"></div>
             </div>
-          ))}
-        </div>
-      </main>
+            {years.map((year) => (
+              <div key={year} className="mb-12">
+                <h2 className="text-2xl font-bold text-foreground mb-6">{year}</h2>
+                <div className="grid gap-8 md:grid-cols-2 items-stretch">
+                  {groupedProjects[year].map((project) => (
+                    <ProjectCard key={project.title} project={project} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      </motion.div>
+      <ResumeButton />
       <Footer />
-    </motion.div>
+    </>
   );
 }

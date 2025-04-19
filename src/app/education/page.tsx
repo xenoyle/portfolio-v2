@@ -1,22 +1,23 @@
 "use client";
 
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import EducationItem from "../../components/EducationItem";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import EducationItem from "@/components/EducationItem";
+import ResumeButton from "@/components/ResumeButton";
 import React from "react";
 import { motion } from "motion/react";
 
 export default function Education() {
   return (
-    <motion.div 
-      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20"
-      initial={{ opacity: 0}}
-      animate={{ opacity: 1}}
-      exit={{ opacity: 0}}
-      transition={{ duration: 1.3 }}
-    >
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
       <Header />
-      <main className="container mx-auto px-4 row-start-2">
+      <motion.main
+        className="container mx-auto px-4 row-start-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1.3 }}
+      >
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Education</h1>
@@ -59,7 +60,7 @@ export default function Education() {
                            and AP Physics I and enjoyed it immensely."
               courses={["AP Computer Science", "AP Physics I"]}
             />
-            {/*
+            {/* 
             <div className="bg-[#0a0a0a] border border-green-500/20 rounded-lg p-6 mt-12">
               <h2 className="text-xl font-bold mb-4 text-green-500">Certifications</h2>
 
@@ -75,8 +76,9 @@ export default function Education() {
             */}
           </div>
         </div>
-      </main>
+      </motion.main>
+      <ResumeButton />
       <Footer />
-    </motion.div>
+    </div>
   );
 }
