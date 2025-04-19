@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SkillTierCard from "@/components/SkillTierCard";
 import ResumeButton from "@/components/ResumeButton";
 import React from "react";
 import { motion } from "motion/react";
@@ -9,12 +10,15 @@ import { motion } from "motion/react";
 export default function Skills() {
   const tiers = [
     {
-      title: "Expert",
-      skills: ["Java", "Agile/Scrum"],
-    },
-    {
       title: "Advanced",
-      skills: ["HTML/CSS", "JavaScript", "TypeScript", "Tailwind CSS", "Python"],
+      skills: [
+        "Java", 
+        "HTML/CSS", 
+        "JavaScript", 
+        "TypeScript", 
+        "Tailwind CSS", 
+        "Python",
+      ],
     },
     {
       title: "Proficient",
@@ -26,13 +30,19 @@ export default function Skills() {
         "Next.js",
         "Git",
         "CI/CD",
+        "Agile/Scrum",
       ],
     },
     {
       title: "Familiar",
-      skills: ["Flask", "REST APIs", "Unreal Engine 5"],
+      skills: [
+        "Flask", 
+        "REST APIs", 
+        "Unreal Engine 5"
+      ],
     },
   ];
+  
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
@@ -55,7 +65,7 @@ export default function Skills() {
 
           <div className="grid gap-8">
             {tiers.map(({ title, skills }) => (
-              <TierCard key={title} title={title} skills={skills} />
+              <SkillTierCard key={title} title={title} skills={skills} />
             ))}
           </div>
         </div>
@@ -63,27 +73,6 @@ export default function Skills() {
 
       <ResumeButton />
       <Footer />
-    </div>
-  );
-}
-
-interface TierCardProps {
-  title: string;
-  skills: string[];
-}
-
-function TierCard({ title, skills }: TierCardProps) {
-  return (
-    <div className="bg-background border border-green-500/20 rounded-lg p-6">
-      <h2 className="text-xl font-semibold mb-4 text-green-500">{title}</h2>
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
-        {skills.map((skill) => (
-          <li key={skill} className="flex items-center text-foreground">
-            <span className="inline-block w-2 h-2 mr-2 bg-green-500 rounded-full" />
-            {skill}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
