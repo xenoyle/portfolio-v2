@@ -2,7 +2,7 @@
 
 > A clean and responsive personal portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS** to showcase my skills, projects, and professional journey.
 
-[🌐 Visit the Site](https://cwf-portfolio-app.vercel.app)
+[🌐 Visit the Site](https://connorwfloyd.dev)
 
 ## 📌 Purpose
 
