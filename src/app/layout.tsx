@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Connor W. Floyd' }],
   icons: {
-    icon: '@/public/favicon.ico',
+    icon:'/favicon.ico',
   },
   openGraph: {
     type: 'website',
@@ -80,11 +80,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Analytics />
-      <SpeedInsights />
+      <head />
       <body
         className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`}
       >
+        <Analytics />
+        <SpeedInsights />
         {children}
       </body>
     </html>
