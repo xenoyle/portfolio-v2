@@ -7,103 +7,83 @@ import React from "react";
 import { motion } from "motion/react";
 
 export default function Skills() {
+  const tiers = [
+    {
+      title: "Expert",
+      skills: ["Java", "Agile/Scrum"],
+    },
+    {
+      title: "Advanced",
+      skills: ["HTML/CSS", "JavaScript", "TypeScript", "Tailwind CSS", "Python"],
+    },
+    {
+      title: "Proficient",
+      skills: [
+        "C++",
+        "SQL",
+        "React",
+        "Node.js",
+        "Next.js",
+        "Git",
+        "CI/CD",
+      ],
+    },
+    {
+      title: "Familiar",
+      skills: ["Flask", "REST APIs", "Unreal Engine 5"],
+    },
+  ];
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
       <Header />
+
       <motion.main
         className="container mx-auto px-4 row-start-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1.3 }}
+        transition={{ duration: 1 }}
       >
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 border-b border-green-500/20 pb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">Skills</h1>
-            <div className="h-1 w-20 bg-green-500 mt-4"></div>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+              Skills
+            </h1>
+            <div className="h-1 w-20 bg-green-500 mt-4" />
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            <SkillCategory
-              title="Programming Languages"
-              skills={[
-                { name: "JavaScript", level: 90 },
-                { name: "TypeScript", level: 85 },
-                { name: "Python", level: 80 },
-                { name: "Java", level: 70 },
-                { name: "C++", level: 60 },
-              ]}
-            />
-
-            <SkillCategory
-              title="Frontend Development"
-              skills={[
-                { name: "React", level: 90 },
-                { name: "Next.js", level: 85 },
-                { name: "HTML/CSS", level: 95 },
-                { name: "Tailwind CSS", level: 90 },
-                { name: "Vue.js", level: 75 },
-              ]}
-            />
-
-            <SkillCategory
-              title="Backend Development"
-              skills={[
-                { name: "Node.js", level: 85 },
-                { name: "Express", level: 80 },
-                { name: "Django", level: 75 },
-                { name: "Flask", level: 70 },
-                { name: "GraphQL", level: 65 },
-              ]}
-            />
-
-            <SkillCategory
-              title="Tools & Technologies"
-              skills={[
-                { name: "Git", level: 90 },
-                { name: "Docker", level: 80 },
-                { name: "AWS", level: 75 },
-                { name: "CI/CD", level: 85 },
-                { name: "Agile/Scrum", level: 90 },
-              ]}
-            />
+          <div className="grid gap-8">
+            {tiers.map(({ title, skills }) => (
+              <TierCard key={title} title={title} skills={skills} />
+            ))}
           </div>
         </div>
       </motion.main>
+
       <ResumeButton />
       <Footer />
     </div>
   );
 }
 
-interface Skill {
-  name: string;
-  level: number;
-}
-
-interface SkillCategoryProps {
+interface TierCardProps {
   title: string;
-  skills: Skill[];
+  skills: string[];
 }
 
-function SkillCategory({ title, skills }: SkillCategoryProps) {
+function TierCard({ title, skills }: TierCardProps) {
   return (
     <div className="bg-background border border-green-500/20 rounded-lg p-6">
-      <h2 className="text-xl font-bold mb-6 text-green-500">{title}</h2>
-
-      <div className="space-y-4">
-        {skills.map((skill, index) => (
-          <div key={index}>
-            <div className="flex justify-between mb-1">
-              <span className="text-foreground">{skill.name}</span>
-              <span className="text-background/60">{skill.level}%</span>
-            </div>
-            <div className="w-full bg-backgroun] rounded-full h-2.5">
-              <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${skill.level}%` }}></div>
-            </div>
-          </div>
+      <h2 className="text-xl font-semibold mb-4 text-green-500">{title}</h2>
+      <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+        {skills.map((skill) => (
+          <li key={skill} className="flex items-center text-foreground">
+            <span className="inline-block w-2 h-2 mr-2 bg-green-500 rounded-full" />
+            {skill}
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
