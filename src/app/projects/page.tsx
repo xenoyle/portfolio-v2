@@ -1,9 +1,12 @@
+"use client";
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Code, ExternalLink } from "lucide-react";
+import { motion } from "motion/react"
 
 interface Project {
   title: string;
@@ -20,8 +23,8 @@ const projects: Project[] = [
     title: "Personal Portfolio Website (v2)",
     description: "A modern portfolio website showcasing my skills, experience, and projects.",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel", "CI/CD"],
-    githubUrl: "https://github.com/xenoyle/cwf-portfolio-app",
-    liveUrl: "https://cwf-portfolio-app.vercel.app",
+    githubUrl: "https://github.com/xenoyle/portfolio-v2",
+    liveUrl: "https://connorwfloyd.dev/",
     year: 2025,
   },
   {
@@ -46,8 +49,8 @@ const projects: Project[] = [
     title: "Personal Portfolio Website (v1)",
     description: "The first version of my portfolio website, built with HTML, CSS, and JavaScript.",
     technologies: ["HTML5", "CSS", "JavaScript", "DNS Management"],
-    githubUrl: "https://github.com/xenoyle/xenoyle.github.io",
-    liveUrl: "https://cwf-portfolio-app.vercel.app/old",
+    githubUrl: "https://github.com/xenoyle/portfolio-v1",
+    liveUrl: "https://connorwfloyd.dev/old",
     year: 2024,
   },
   {
@@ -136,13 +139,19 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const groupedProjects = groupProjectsByYear(projects);
-  // Sort years descending for a chronological timeline view
+  
   const years = Object.keys(groupedProjects)
     .map(Number)
     .sort((a, b) => b - a);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
+    <motion.div
+      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20"
+      initial={{ opacity: 0}}
+      animate={{ opacity: 1}}
+      exit={{ opacity: 0}}
+      transition={{ duration: 1.3 }}
+    >
       <Header />
       <main className="container mx-auto px-4 row-start-2">
         <div className="max-w-4xl mx-auto">
@@ -163,6 +172,6 @@ export default function Projects() {
         </div>
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

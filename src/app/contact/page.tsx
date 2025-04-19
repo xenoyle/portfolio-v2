@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send, Loader } from "lucide-react"; // Add Loader for spinner
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { motion } from "motion/react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -59,7 +60,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
+    <motion.div 
+      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20"
+      initial={{ opacity: 0}}
+      animate={{ opacity: 1}}
+      exit={{ opacity: 0}}
+      transition={{ duration: 1.3 }}
+    >
       <Header />
       <main className="container mx-auto px-4 row-start-2">
         <div className="max-w-4xl mx-auto">
@@ -199,6 +206,6 @@ export default function Contact() {
         </div>
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 }
