@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Connor W. Floyd' }],
   icons: {
-    icon: '/favicon.ico',
+    icon: '@/public/favicon.ico',
   },
   openGraph: {
     type: 'website',
