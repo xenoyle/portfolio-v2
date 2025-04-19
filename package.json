@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "post-build": "next-sitemap",
+    "vercel-build": "next build && next-sitemap",
+    "postbuild": "",
     "start": "next start",
     "lint": "next lint"
   },
