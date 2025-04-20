@@ -155,15 +155,15 @@ export default function Projects() {
         exit={{ opacity: 0 }}
         transition={{ duration: 1.3 }}
       >
-        <AmbientBackground includeGrid={false} className="z-0" />
+        <AmbientBackground />
         <main className="container mx-auto px-4 row-start-2">
-          <div 
+          <div
             className="max-w-4xl mx-auto relative z-10 rounded-lg p-6 my-8 bg-background/80"
             style={{
               boxShadow: `
-                0 0 20px 10px rgba(10,10,10,0.6),
-                0 0 60px 30px rgba(10,10,10,0.4),
-                0 0 120px 60px rgba(10,10,10,0.2)
+                0 4px 20px rgba(10,10,10,0.15),
+                0 8px 40px rgba(10,10,10,0.1),
+                0 16px 80px rgba(10,10,10,0.05)
               `,
             }}
           >
