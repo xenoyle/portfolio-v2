@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AmbientBackground from "@/components/AmbientBackground";
 import SkillTierCard from "@/components/SkillTierCard";
 import ResumeButton from "@/components/ResumeButton";
 import React from "react";
@@ -55,7 +56,17 @@ export default function Skills() {
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="max-w-4xl mx-auto">
+        <AmbientBackground includeGrid={false} className="z-0" />
+        <div 
+          className="max-w-4xl mx-auto relative z-10 rounded-lg p-6 my-8 bg-background/80"
+          style={{
+            boxShadow: `
+              0 0 20px 10px rgba(10,10,10,0.6),
+              0 0 60px 30px rgba(10,10,10,0.4),
+              0 0 120px 60px rgba(10,10,10,0.2)
+            `,
+          }}
+        >
           <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               Skills

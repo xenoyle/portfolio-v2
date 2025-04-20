@@ -6,6 +6,7 @@ import ResumeButton from "@/components/ResumeButton";
 import React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import AmbientBackground from "@/components/AmbientBackground";
 
 export default function About() {
   {/* Currently interesting topics that im exploring in my free time */}
@@ -27,7 +28,17 @@ export default function About() {
         exit={{ opacity: 0 }}
         transition={{ duration: 1.3 }}
       >
-        <div className="max-w-4xl mx-auto">
+        <AmbientBackground includeGrid={false} className="z-0" />
+        <div 
+          className="max-w-4xl mx-auto relative z-10 rounded-lg p-6 my-8 bg-background/80"
+          style={{
+            boxShadow: `
+              0 0 20px 10px rgba(10,10,10,0.6),
+              0 0 60px 30px rgba(10,10,10,0.4),
+              0 0 120px 60px rgba(10,10,10,0.2)
+            `,
+          }}
+        >
           <div className="mb-8 border-b border-green-500/20 pb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">About Me</h1>
             <div className="h-1 w-20 bg-green-500 mt-4"></div>
@@ -40,7 +51,7 @@ export default function About() {
               technologies and pushing the boundaries of what&apos;s possible.
             </p>
 
-            <div className="bg-[#0a0a0a] border border-green-500/20 rounded-lg p-6 my-8">
+            <div className="relative z-10 bg-[#0a0a0a]/90 backdrop-blur-sm border border-green-500/20 rounded-lg p-6 my-8">
               <h2 className="text-xl font-semibold mb-4 text-green-500">My History</h2>
               <p>
                 From as early as middle school, I was interested in creating a career for myself as a coder.
@@ -51,7 +62,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-[#0a0a0a] border border-green-500/20 rounded-lg p-6 my-8">
+            <div className="relative z-10 bg-[#0a0a0a]/90 backdrop-blur-sm border border-green-500/20 rounded-lg p-6 my-8">
               <h2 className="text-xl font-semibold mb-4 text-green-500">My Philosophy</h2>
               <p>
                 I approach every challenge by thinking about the circumstances and the people involved in the problem I&apos;m
@@ -62,7 +73,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="bg-[#0a0a0a] border border-green-500/20 rounded-lg p-6 my-8">
+            <div className="relative z-10 bg-[#0a0a0a]/90 backdrop-blur-sm border border-green-500/20 rounded-lg p-6 my-8">
               <h2 className="text-xl font-semibold mb-4 text-green-500">My Interests</h2>
               <p className="mb-4">
                 When I’m not immersed in code, you’ll often find me reading my{" "}
